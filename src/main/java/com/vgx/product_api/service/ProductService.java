@@ -39,7 +39,7 @@ public class ProductService {
     return productRepository.save(existingProduct);
   }
 
-  public Product updateProductQuantity(Long id, Integer quantity) {
+  public Product decreaseQuantity(Long id, Integer quantity) {
     Product existingProduct = findProductById(id);
     if (quantity < 0) {
       throw new IllegalArgumentException("Quantidade não pode ser negativa");
