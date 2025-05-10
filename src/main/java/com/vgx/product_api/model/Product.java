@@ -20,20 +20,20 @@ public class Product {
   private Long id;
 
   @Column(name = "name")
-  @NotBlank
+  @NotBlank(message = "O nome é obrigatório.")
   private String name;
 
   @Column(name = "description")
-  @NotBlank
+  @NotBlank(message = "A descrição é obrigatória.")
   private String description;
 
   @Column(name = "price")
-  @NotNull
-  @DecimalMin("0.00")
+  @NotNull(message = "O preço é obrigatório.")
+  @DecimalMin(value = "0.00", message = "O preço não pode ser negativo.")
   private BigDecimal price;
 
   @Column(name = "quantity")
-  @NotNull
-  @Min(0)
+  @NotNull(message = "A quantidade é obrigatória.")
+  @Min(value = 0, message = "A quantidade não pode ser negativa.")
   private Integer quantity;
 }

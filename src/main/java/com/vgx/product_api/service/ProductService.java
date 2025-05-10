@@ -23,10 +23,13 @@ public class ProductService {
 
   public Product findProductById(Long id) {
     return productRepository.findById(id)
-        .orElseThrow(() -> new EntityNotFoundException(String.format("Produto não encontrado com o ID: %d", id)));
+        .orElseThrow(() -> new EntityNotFoundException("Produto não encontrado com o ID:" + id));
   }
 
   public void deleteProductById(Long id) {
+     if (!productRepository.existsById(id)) {
+       throw new EntityNotFoundException("Produto com ID " + id + " não encontrado para exclusão.");
+     }
     productRepository.deleteById(id);
   }
 
@@ -39,12 +42,12 @@ public class ProductService {
     return productRepository.save(existingProduct);
   }
 
-  public Product decreaseQuantity(Long id, Integer quantity) {
+  public Product decreaseQuantity(Long id) {
     Product existingProduct = findProductById(id);
-    if (quantity < 0) {
-      throw new IllegalArgumentException("Quantidade não pode ser negativa");
+    if (existingProduct.getQuantity() == 0) {
+      throw new IllegalArgumentException("Produto zerado! Não pode ficar com quantidade negativa");
     }
-    existingProduct.setQuantity(quantity);
+    existingProduct.setQuantity(existingProduct.getQuantity() - 1);
     return productRepository.save(existingProduct);
   }
 }
