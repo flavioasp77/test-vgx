@@ -75,7 +75,7 @@ public class ProductController {
       Product updated = productService.updateProduct(id, product);
       return ResponseEntity.ok(updated);
     } catch (EntityNotFoundException e) {
-      return ResponseEntity.status(404).body("Produto com ID " + id + " não encontrado para atualização.");
+      return ResponseEntity.status(404).body(e.getMessage());
     } catch (Exception e) {
       return ResponseEntity.badRequest().body("Erro ao atualizar produto: " + e.getMessage());
     }
@@ -87,7 +87,7 @@ public class ProductController {
       productService.deleteProductById(id);
       return ResponseEntity.noContent().build();
     } catch (EntityNotFoundException e) {
-      return ResponseEntity.status(404).body("Produto com ID " + id + " não encontrado para exclusão.");
+      return ResponseEntity.status(404).body(e.getMessage());
     } catch (Exception e) {
       return ResponseEntity.internalServerError().body("Erro ao excluir produto: " + e.getMessage());
     }
@@ -101,7 +101,7 @@ public class ProductController {
     } catch (IllegalArgumentException e) {
       return ResponseEntity.badRequest().body(e.getMessage());
     } catch (EntityNotFoundException e) {
-      return ResponseEntity.status(404).body("Produto com ID " + id + " não encontrado.");
+      return ResponseEntity.status(404).body(e.getMessage());
     } catch (Exception e) {
       return ResponseEntity.internalServerError().body("Erro ao decrementar quantidade: " + e.getMessage());
     }
