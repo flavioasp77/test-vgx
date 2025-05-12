@@ -85,6 +85,12 @@ SELECT * FROM products;
 
 ---
 
+## 🧠 Prova de Lógica
+
+Para rodar a prova de lógica use o arquivo `src/logicTest/logicPracticeTest.java`.
+
+---
+
 ## 💡 Extras implementados
 
 - Validação com mensagens personalizadas usando `@NotBlank`, `@NotNull`, `@Min`
