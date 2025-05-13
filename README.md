@@ -94,7 +94,7 @@ Para rodar a prova de lógica use o arquivo `src/logicTest/logicPracticeTest.jav
 ## 💡 Extras implementados
 
 - Validação com mensagens personalizadas usando `@NotBlank`, `@NotNull`, `@Min`
-- Tratamento de erros com `@RestControllerAdvice` e `ResponseEntity`
+- Tratamento de erros com `ResponseEntity`
 - Paginação manual e flexível com `page` e `pageSize`
 - Testes com base de dados pré-carregada (30 produtos via script)
 
