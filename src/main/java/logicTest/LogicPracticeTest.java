@@ -31,7 +31,7 @@ public class LogicPracticeTest {
 
     public static void reverseListWithCollections() {
         List<Integer> original = Arrays.asList(2, 5, 3, 7, 4, 7, 9, 6, 4, 8);
-        List<Integer> reversed = new ArrayList<>(original); // cria cópia para inverter
+        List<Integer> reversed = new ArrayList<>(original);
         Collections.reverse(reversed);
 
         System.out.println("List Reversal with Collections.reverse:");
@@ -41,31 +41,28 @@ public class LogicPracticeTest {
 
     // ---------- Sorting ----------
     public static void sortListManual() {
-        int[] numbers = {5, 2, 8, 4, 6, 3, 7};
+        List<Integer> numbers = new ArrayList<>(Arrays.asList(5, 2, 8, 4, 6, 3, 7));
 
         System.out.println("Manual List Sorting (Bubble Sort):");
-        System.out.print("Original: ");
-        for (int n : numbers) System.out.print(n + " ");
-        System.out.println();
+        System.out.println("Original: " + numbers);
 
-        for (int i = 0; i < numbers.length - 1; i++) {
-            for (int j = 0; j < numbers.length - 1 - i; j++) {
-                if (numbers[j] > numbers[j + 1]) {
-                    int temp = numbers[j];
-                    numbers[j] = numbers[j + 1];
-                    numbers[j + 1] = temp;
+        for (int i = 0; i < numbers.size() - 1; i++) {
+            for (int j = 0; j < numbers.size() - 1 - i; j++) {
+                if (numbers.get(j) > numbers.get(j + 1)) {
+
+                    int temp = numbers.get(j);
+                    numbers.set(j, numbers.get(j + 1));
+                    numbers.set(j + 1, temp);
                 }
             }
         }
 
-        System.out.print("Sorted:   ");
-        for (int n : numbers) System.out.print(n + " ");
-        System.out.println("\n");
+        System.out.println("Sorted: " + numbers + "\n");
     }
 
     public static void sortListWithCollections() {
         List<Integer> original = Arrays.asList(5, 2, 8, 4, 6, 3, 7);
-        List<Integer> numbers = new ArrayList<>(original); // cópia para ordenação
+        List<Integer> numbers = new ArrayList<>(original);
 
         System.out.println("List Sorting with Collections.sort:");
         System.out.println("Original: " + original);

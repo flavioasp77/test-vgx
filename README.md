@@ -102,10 +102,13 @@ Para rodar a prova de lógica use o arquivo `src/logicTest/logicPracticeTest.jav
 
 ## 🚀 Rodar o projeto
 
-Após subir o MySQL, execute:
-
+Instale as dependências
 ```bash
-./mvnw spring-boot:run
+./mvn clean install
+```
+Após subir o MySQL:
+```bash
+./mvn spring-boot:run
 ```
 
 Ou execute diretamente na sua IDE (IntelliJ, VS Code etc.)
