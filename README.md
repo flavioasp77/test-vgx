@@ -70,7 +70,7 @@ docker exec -it mysql-container mysql -u root -p
 3. Execute comandos SQL, como:
 
 ```sql
-USE produtosdb;
+USE product_api;
 SHOW TABLES;
 SELECT * FROM products;
 ```

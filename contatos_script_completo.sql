@@ -1,4 +1,14 @@
 USE product_api;
+
+-- Criação da tabela product
+CREATE TABLE product (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    quantity INT NOT NULL
+);
+
 -- Insere dados na tabela product
 INSERT INTO product (name, description, price, quantity) VALUES
 ('Caneta Azul', 'Caneta esferográfica azul', 2.50, 100),
